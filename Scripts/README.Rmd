@@ -1,0 +1,34 @@
+---
+title: ""
+output: github_document
+---
+
+```{r setup, include = FALSE}
+load("Dados/Data & Functions.RData")
+```
+
+# Análise dos gastos do mês - Abril
+
+O gasto total do mês de Abril foi de R$`r sum(dados$Valor)`, sendo distribuído da seguinte maneira:
+
+```{r, echo = FALSE}
+gasto_categoria()
+```
+
+Os maiores gastos por cada categoria se deram da seguinte forma:
+
+```{r, echo = FALSE}
+gasto_categoria("maior")
+```
+
+O valor médio gasto em cada depesa foi de R$`r mean(dados$Valor) %>% round(digits = 2)`. A distribuição de gastos ao longo do mês foi uniforme, com valores próximos à média, a concentração de gastos se deu em maior intensidade no final do mês. Há somente um período caracterizado por um outlier que altera um pouco a visualização do gráfico, que pode ser visto abaixo:
+
+``` {r, echo = FALSE, message = FALSE}
+disp()
+```
+
+Visualizando os dados por gastos por dia, concentra-se um gasto maior durante o final de semana, com o pico sendo na sexta-feira. Não ocorreram dados nos dias de segunda e terça-feira.
+
+``` {r, echo = FALSE}
+dia_semana("disp")
+```
